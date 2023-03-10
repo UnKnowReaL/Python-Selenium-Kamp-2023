@@ -1,0 +1,42 @@
+# ÖDEV 1
+
+# ÖDEV TANIMI:
+# Python'da Veri Tiplerini araştırınız, her bir veri tipi için kendi cümlelerinizle açıklamalar yazınız.
+# Kodlama.io sitesinde değişken olarak kullanıldığını düşündüğünüz verileri, veri tipleriyle birlikte örneklendiriniz.
+# Kodlama.io sitesinde şart blokları kullanıldığını düşündüğünüz kısımları örneklendiriniz ve Python dilinde bu örnekleri koda dökünüz.
+
+
+# Veri Tipleri
+# 1. str    ---> metinsel ifadeler için kullanılır.
+# 2. int    ---> tamsayılar için kullanılır.
+# 3. float  ---> ondalıklı sayılar için kullanılır.
+# 4. bool   ---> mantıksal ifadeler için kullanılır.
+
+
+# kodlama.io sitesinde veri tiplerine örnekler
+#str
+baslık = "kodlama.io"
+print(type(baslık))
+
+#int
+yorumSayisi = 177               
+print(type(yorumSayisi))
+
+#float
+kursTamamlamaYuzdesi = 99,5     
+print(type(kursTamamlamaYuzdesi))
+
+#bool
+yorumKutusu = True 
+print(type(yorumKutusu))             
+
+print("------------------------------------------------------------------")
+
+# kodlama.io sitesinde şart bloklarına örnekler
+# yorum kutusuna yorum yapılıp yapılmadığını şart blokları ile kontrol edilebilir.
+
+yorumMetni =""
+if yorumMetni =="":
+    print("Lütfen yorum kutusunu boş geçmeyiniz")
+else:
+    print("yorumunuz iletilmiştir.")
