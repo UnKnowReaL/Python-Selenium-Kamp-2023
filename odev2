@@ -1,0 +1,87 @@
+ogrenci = ["ahmet şen", "ali desidero", "ayşe ay"]
+
+while True:
+    print("")
+    print("************************************************")
+    print("*      ÖĞRENCİ KAYIT SİSTEMİ                   *")
+    print("*      1. Öğrenci Kayıt Ekleme                 *")
+    print("*      2. Öğrenci Kayıt Silme                  *")
+    print("*      3. Birden Fazla Öğrenci Kaydı Ekleme    *")
+    print("*      4. Öğrenci Kayıt Listesini Yazdır       *")
+    print("*      5. Öğrenci Numarası Sorgulama           *")
+    print("*      6. Birden Fazla Öğrenci Kaydı Silme     *")
+    print("*      7. Çıkış                                *")
+    print("************************************************")
+    islem = input("Lütfen yapmak istediğiniz işlemi seçiniz: ")
+
+    def ogrenciEkleme():
+        print("Öğrenci Kayıt Ekleme")
+        ad = input("Eklemek istediğiniz öğrencinin adı: ")
+        soyad = input("Eklemek istediğiniz öğrencinin soyadı: ")
+        ogrenci.append(ad + " " + soyad)
+        print("1 kayıt eklenmiştir.")
+
+    def ogrenciSilme():
+        print("Öğrenci Kayıt Silme")
+        ad = input("Silme istediğiniz öğrencinin adı: ")
+        soyad = input("Silmek istediğiniz öğrencinin soyadı: ")
+        ogrenci.remove(ad + " " + soyad)
+        print("1 kayıt silinmiştir.")
+    
+    def FazlaogrenciEkleme():
+        print("Birden Fazla Öğrenci Kayıtı Ekleme")
+        deger = int(input("Kaç kayıt ekleyeceksiniz: "))
+        for i in range(deger):
+            ad = input(f"{i + 1}. eklemek istediğiniz öğrencinin adı: ")
+            soyad = input(f"{i + 1}. eklemek istediğiniz öğrencinin soyadı: ")
+            ogrenci.append(ad + " " + soyad)
+        print(f"{deger} yeni kayıt eklenmiştir.")
+
+    def FazlaogrenciSilme():
+        print("Birden Fazla Öğrenci Kaydı Silme")
+        deger = int(input("Kaç kayıt sileceksiniz: "))
+        for i in range(deger):
+            ad = input(f"{i + 1}. silmek istediğiniz öğrencinin adı: ")
+            soyad = input(f"{i + 1}. silmek istediğiniz öğrencinin soyadı: ")
+            ogrenci.remove(ad + " "+ soyad)
+        print(f"{deger} kayıt silinmiştir.")
+        
+    def yazdır():
+        print("ÖĞRENCİ LİSTESİ")
+        print("---------------")
+        index = 0
+        for i in ogrenci:
+            print(f"{index} {i}")
+            index += 1
+        
+    def ogrenciNo():
+        print("Öğrenci Numarası Sorgulama")
+        ad = input("Numarasını sorgulamak istediğiniz öğrencinin adı: ")
+        soyad = input("Numarasını sorgulamak istediğiniz soyadı: ")
+        no = ogrenci.index(ad +" " + soyad)
+        print(f"Öğrencinin numarası: {no}")
+
+
+    if islem == "1":         
+        ogrenciEkleme()
+    
+    elif islem == "2":
+        ogrenciSilme()
+
+    elif islem == "3":
+        FazlaogrenciEkleme()
+
+    elif islem == "4":
+        yazdır()
+    
+    elif islem == "5":
+        ogrenciNo()
+    
+    elif islem == "6":
+        FazlaogrenciSilme()
+        
+    elif islem == "7":
+        break
+    else:                                               # 15. satırda int dönüşü yapıldığında else komutuna str ifade girdiğimizde  
+        print("Lütfen doğru bir şeçim yapınız..." )     # program hata veriyor. Bu yüzden int dönüşümü yapmadan if koşullarını str yapıldı.
+        
