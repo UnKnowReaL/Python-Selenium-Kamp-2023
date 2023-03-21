@@ -1,0 +1,27 @@
+HTML?
+HTML, HyperText Markup Language web sayfalarını oluşturmak için kullanılan standart metin işaretleme dilidir. Dilin son sürümü HTML5'tir.
+**************************
+
+HTML LOCATOR?
+Selenium hangi web tabanlı objeler üzerinde çalışması gerektiğini söyleyen bir komuttur. Bu araçlar, web sayfalarında belirli öğeleri bulmak ve üzerlerinde işlem yapmak için HTML Locators'ları kullanır.
+**************************
+
+SELENIUM AKSİYONLAR
+get()
+title()
+back()
+refresh()
+close()
+quit()
+click() 
+clear()
+find_element()
+find_elements()
+submit()
+forward()
+send_keys()
+maximize_window()
+set_window_size()
+save_screenshot()
+page_source()
+...
