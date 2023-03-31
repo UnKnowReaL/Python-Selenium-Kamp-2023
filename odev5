@@ -1,0 +1,61 @@
+PyTest Decorators
+Dekoratörler, kapsamasını istediğimiz fonksiyonların üzerine, önünde @ karakteri konularak yazılır. 
+Buna "pie syntax" denir. Aslında bu yazım stili sadece bir kısayoldan ibarettir.
+
+  # Yöntem 1:
+@decorator
+def func():
+    pass
+
+# Yöntem 2:
+def func():
+    pass
+    
+func = decorator(func)
+
+Yukarıdaki örnekte; üstteki pie syntax ile yazılmış dekoratörün yaptığı iş aslında hemen altındaki bölümün yaptığı iş ile aynıdır. 
+Kullanım kolaylığı sağlamak ve okunabilirliği artırmak açısından böyle bir söz dizimi tercih edilmiş.
+
+Aşağıda en basit kullanımıyla bir dekoratör görüyorsunuz. 
+Fonksiyon çalışmadan önce bir mesaj yazdırıyor. Asıl fonksiyonda ise fonksiyonun çalıştığını yazdırıyoruz.
+
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        print('Fonksiyon çalışacak...')
+        func()
+    return wrapper
+
+@decorator
+def func():
+    print('Fonksiyon çalıştı.')
+
+func()
+
+Bir dekoratör kullanıldığında, kullanılan fonksiyon dekoratöre parametre olarak düşer. 
+Dekoratör içinde bir kapsayıcı (wrapper) iç fonksiyon oluşturur ve asıl fonksiyona gelen parametreleri bununla yakalarız. 
+Dilediğimiz işlemleri yaptıktan sonra iç fonksiyondan, parametre olarak gelen asıl fonksiyondan dönen değeri, 
+dekoratörden ise iç fonksiyonun kendisini geriye döndürürüz.
+
+Pytest'te kullanılan bazı dekoratörler:
+
+pytest.approx(): İki veya ikiden fazla sayının sayı kümeleri yaklaşık olarak bazı farklılıklara eşitler.
+pytest.fail(): Yürütülmekte olan test açıkça başarısız olursa, mesaj gösterir.
+pytest.skip(): Gösterilen mesajla yürütme testini atlatır.
+pytest.exit(): Test sürecinden çıkartır.
+pytest.main(): İşlem içi test yürütmesi tamamlandığında çıkış kodunu döndürür.
+pytest.raises(): Bir kod bloğu çağrısının beklenen istisnayı ortaya çıkardığını veya bir hata istisnası oluşturduğunu ileri sürer.
+pytest.fixture(): Fonksiyonlarda dönüş değerinin, imzalarında dekore edilmiş fonksiyon adı bulunan test fonksiyonlarına enjekte edilmesini mümkün kılar.
+pytest.mark.skip(): Bu dekoratör bir test fonksiyonunda belirlenen testi atlamak için kullanılır.
+pytest.mark.skipİf(): Bir test fonksiyonunda verilen koşul True ise testi atlamamızı sağlar.
+pytest.mark.parametrize(): Bu dekoratör her yinelemede girilen parametreleri değiştirerek bir test işlevini birden çok kez çağırmaya izin verir.
+pytest.mark.timeout(): Bir testin belirli bir sürede tamamlanması gerektiğini belirlemek için kullanılır.
+pytest.mark.xfail(): Bir testin başarısız olmasını beklediğimizi belirtmek için kullanılır.
+pytest.mark.dependency(): Bu dekoratör testler arası bağımlılıkları belirlemek için kullanılır.
+
+
+
+
+Kaynaklar:
+[1]: https://medium.com/herkes-i%C3%A7in-python/python-decorators-45aac5308fb
+[2]: https://medium.com/@syndrome/python-decorators-fb7d906890dc
+[3]: https://tr.myservername.com/top-6-best-python-testing-frameworks#Comparison_of_Python_Testing_Tools
